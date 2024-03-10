@@ -1,0 +1,848 @@
+#main div.container_events {
+  display: block;
+  float: left;
+  width: 100%;
+  height: auto;
+  color: #2D2D2D;
+}
+#main div.events {
+  display: inline-block;
+  float: left;
+  width: 850px;
+  height: auto;
+  padding: 8px;
+  position: relative;
+}
+#main div.events button#new_event {
+  display: block;
+  padding: 5px 10px;
+  background-color: #05386B;
+  color: #FFFFFF;
+  font-size: 17px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 3;
+  left: 15px;
+  top: 122px;
+  border: 1px solid #05386B;
+  border-radius: 5px;
+  font-family: 'roboto_light';
+  transition: all 0.6s ease;
+}
+#main div.events button#new_event:hover {
+  background-color: #5CDB95;
+  color: #05386B;
+  border: 1px solid #05386B;
+}
+#main div.events form.search {
+  display: block;
+  width: 670px;
+  float: left;
+  position: relative;
+  margin-bottom: 10px;
+  margin-left: 153px;
+}
+#main div.events form.search input,
+#main div.events form.search select {
+  display: inline-block;
+  width: 80%;
+  float: left;
+  height: 40px;
+  color: #2D2D2D;
+  padding-left: 10px;
+  font-size: 16px;
+  font-family: 'roboto_light';
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 5px;
+  border: 1px solid rgba(45,45,45,0.5);
+}
+#main div.events form.search select {
+  width: 19%;
+  margin-right: 1%;
+  padding-left: 0;
+}
+#main div.events form.search input:focus,
+#main div.events form.search select:focus {
+  outline: none;
+  border: 1px solid rgba(45,45,45,0.6);
+  box-shadow: 0 0 3px #2D2D2D;
+}
+#main div.events form.search button {
+  position: absolute;
+  right: 1px;
+  top: 0;
+  background-color: #05386B;
+  color: #FFFFFF;
+  border: 1px solid #05386B;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  padding: 11px 18px;
+}
+
+#main .events div.list_events_wrapper {
+  display: block;
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+#main .events div.list_events h3 {
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'roboto_light';
+  font-weight: lighter;
+}
+#main .events div.list_events {
+  display: block;
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: all 0.5s ease;
+}
+#main .events div.list_events:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+#main .events div.list_events div.img {
+  display: inline-block;
+  float: left;
+  width: 150px;
+  height: 120px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#main .events div.list_events div.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#main .events div.list_events div.details {
+  display: inline-block;
+  float: left;
+  width: calc(100% - 150px);
+  padding: 0 12px;
+}
+#main .events div.list_events div.details span {
+  display: inline-block;
+  float: left;
+  width: 42.5%;
+  font-size: 13px;
+  color: #05386B;
+}
+#main .events div.list_events div.details span.sp_venue {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#main .events div.list_events div.details span.joined {
+  width: 15%;
+}
+#main .events div.list_events div.details span.head {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  color: #2D2D2D;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#main .events div.list_events div.details div {
+  float: left;
+  width: 100%;
+  font-size: 15px;
+  padding-top: 10px;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#main .events div.list_events div.details span.btns {
+  display: block;
+  width: 100%;
+  float: left;
+  padding-top: 5px;
+}
+#main .events div.list_events div.details span.btns button {
+  display: inline-block;
+  float: left;
+  border: none;
+  background-color: #05386B;
+  color: #FFFFFF;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-family: "roboto_light";
+}
+#main .events div.list_events div.details span.btns button.view {
+  background-color: #00A83F;
+}
+#main .events div.list_events div.details span.date {
+  display: block;
+  width: 100%;
+  font-family: "roboto_italic";
+  text-align: right;
+  font-size: 14px;
+}
+
+
+
+
+/*------    POP UP MODAL BOX ------*/
+#container div.modal {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+#container div.modal div.preload {
+  display: block;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #FFFFFF;
+  transform: translate(-50%,-50%);
+  font-size: 100px;
+}
+#container div.modal .modal-content {
+  margin: 65px auto;
+  display: block;
+  width: 550px;
+  height: auto;
+  padding: 15px;
+  background-color: #DEF2F0;
+  text-align: left;
+  border-radius: 4px;
+}
+#container div.modal .post_details {
+width: 1200px;
+}
+#container div.modal .close {
+  position: absolute;
+  top: 15px;
+  right: 70px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-family: 'roboto_light';
+  transition: all 0.4s ease;
+}
+#container div.modal .close:hover,
+#container div.modal .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/*---- FORMS INSIDE MODAL STYLE ---*/
+#container div.modal form.formStyle {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+}
+#container div.modal form.formStyle div.form-header {
+  display: block;
+  width: 100%;
+  float: left;
+  background-color: #5CDB95;
+  padding: 12px 8px;
+  color: #05386B;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#container div.modal form.formStyle div.success_sms,
+#container div.modal form.formStyle div.error_sms,
+#container div.modal form.formStyle div.input-wrapper span {
+  display: block;
+  width: 100%;
+  float: left;
+  color: red;
+  font-size: 14px;
+  font-family: "roboto_regular";
+}
+#container div.modal form.formStyle div.success_sms {
+  color: green;
+}
+#container div.modal form.formStyle div.imageview {
+  display: block;
+  width: 100%;
+  height: 200px;
+  float: left;
+  margin: 4px 0;
+}
+#container div.modal form.formStyle div.textView {
+  height: auto;
+}
+#container div.modal form.formStyle div.imageview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: contain;
+}
+#container div.modal form.formStyle div.input-wrapper {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 0 5px;
+  margin-bottom: 6px;
+  color: #2D2D2D;
+  font-size: 15px;
+}
+#container div.modal form.formStyle div.input-wrapper label {
+  display: block;
+  width: 100%;
+  float: left;
+}
+#container div.modal form.formStyle div.input-wrapper input,
+#container div.modal form.formStyle div.input-wrapper select,
+#container div.modal form.formStyle div.input-wrapper textarea  {
+  display: block;
+  width: 100%;
+  float: left;
+  height: 40px;
+  padding-left: 5px;
+  border: 1px solid rgba(45,45,45,0.5);
+  border-radius: 4px;
+  color: #2D2D2D;
+  font-size: 15px;
+  background-color: rgba(255,255,255,0.7);
+}
+#container div.modal form.formStyle div.input-wrapper input:focus,
+#container div.modal form.formStyle div.input-wrapper select:focus,
+#container div.modal form.formStyle div.input-wrapper textarea:focus {
+  outline: none;
+  border: 1px solid rgba(45,45,45,0.6);
+  box-shadow: 0 0 5px #2D2D2D;
+}
+#container div.modal form.formStyle div.input-wrapper textarea {
+  height: 300px;
+  resize: none;
+  font-weight: 'roboto_light';
+  padding: 5px;
+}
+#container div.modal form.formStyle div.input-wrapper textarea.bioNew {
+  height: 180px;
+}
+#container div.modal form.formStyle div.btn button {
+  display: inline-block;
+  float: left;
+  width: auto;
+  padding: 8px 10px;
+  background-color: #05386B;
+  color: #FFFFFF;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+#container div.modal form.formStyle div.input-wrapper button:hover {
+  background-color: #006494;
+}
+#container div.modal form.formStyle div.btn button.cancel {
+  background-color: #EE4B2B;#FF6D68
+}
+#container div.modal form.formStyle div.btn button.cancel:hover {
+  background-color: #FF6D68;
+}
+#container div.modal form.formStyle div.btn button.load {
+  display: none;
+  background-color: #72898F;
+}
+
+#container div.modal form.formStyle div.tags {
+  position: relative;
+}
+#container div.modal form.formStyle div.tags span {
+  color: #2D2D2D;
+}
+#container div.modal form.formStyle div.tags i.fa-search {
+  position: absolute;
+  right: 12px;
+  top: 32px;
+  color: rgba(45,45,45,0.6);
+  z-index: 1;
+}
+#container div.modal form.formStyle div.tags div.searching {
+  display: none;
+  width: 100%;
+  height: 142px;
+  float: left;
+  border: 1px solid rgba(45,45,45,0.2);
+  position: absolute;
+  top: -140px;
+  left: 0;
+  overflow: hidden;
+  background-color: #DEF2F0;
+}
+#container div.modal form.formStyle div.tags div.searching div {
+  display: block;
+  width: 100%;
+  float: left;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+#container div.modal form.formStyle div.tags div.searching div:hover {
+  background-color: #FFFFFF;
+}
+#container div.modal form.formStyle div.tags div.searching div img {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  float: left;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+#container div.modal form.formStyle div.tags div.searching div span {
+  display: inline-block;
+  float: left;
+  width: auto;
+  padding: 7px 0 7px 10px;
+}
+#container div.modal form.formStyle div.tags div.mentioned {
+  display: none;
+  float: left;
+  width: 100%;
+  padding: 2px;
+}
+#container div.modal form.formStyle div.tags div.mentioned span {
+  display: inline-block;
+  float: left;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  margin-right: 8px;
+}
+#container div.modal form.formStyle div.tags div.mentioned span i {
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+#container div.modal form.formStyle div.tags div.mentioned span i:hover {
+  color: tomato;
+}
+
+
+
+
+
+
+
+
+#container div.modal .details_holder {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+}
+#container div.modal .details_holder .leftside {
+  display: inline-block;
+  width: 70%;
+  float: left;
+  height: auto;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+#container div.modal .details_holder .leftside .eventPicture,
+#container div.modal .details_holder .leftside .eventPicture img {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 300px;
+}
+#container div.modal .details_holder .leftside .eventPicture img {
+  object-fit: cover;
+  object-position: center;
+}
+#container div.modal .details_holder .leftside .invited,
+#container div.modal .details_holder .leftside .about,
+#container div.modal .details_holder .leftside .readEvent,
+#container div.modal .details_holder .leftside .share,
+#container div.modal .details_holder .leftside .share span {
+  display: block;
+  width: 100%;
+  float: left;
+  font-size: 15px;
+  padding: 40px 30px;
+}
+#container div.modal .details_holder .leftside .invited {
+  font-weight: bold;
+}
+#container div.modal .details_holder .leftside .about {
+  font-weight: bold;
+  padding: 10px 30px;
+}
+#container div.modal .details_holder .leftside .readEvent {
+  padding: 10px 30px 50px 30px;
+  text-align: justify;
+  overflow: hidden;
+  height: auto;
+  white-space: pre-wrap;
+}
+#container div.modal .details_holder .leftside .share {
+  font-size: 20px;
+  color: #2D2D2D;
+  text-align: right;
+}
+#container div.modal .details_holder .leftside .share span {
+  font-size: 15px;
+  padding: 10px 0;
+  font-weight: bold;
+}
+#container div.modal .details_holder .leftside .share i {
+  display: inline-block;
+  width: auto;
+  margin-left: 8px;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+#container div.modal .details_holder .leftside .share i:hover {
+  background-color: #2D2D2D;
+  color: #FFFFFF;
+}
+
+
+
+
+#container div.modal .details_holder .rightside {
+  display: inline-block;
+  width: 30%;
+  float: left;
+  height: 100%;
+  padding: 5px 15px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+#container div.modal .details_holder .rightside div {
+  display: block;
+  float: left;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+}
+#container div.modal .details_holder .rightside div.ev_post {
+  padding: 25px 0 50px 0;
+  text-align: center;
+}
+#container div.modal .details_holder .rightside div.ev_post button {
+  display: block;
+  float: right;
+  border: none;
+  background-color: #05386B;
+  color: #FFFFFF;
+  padding: 8px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#container div.modal .details_holder .rightside div.ev_post b {
+  font-size: 20px;
+}
+#container div.modal .details_holder .rightside div.dateTime b,
+#container div.modal .details_holder .rightside div.location b,
+#container div.modal .details_holder .rightside div.tags b,
+#container div.modal .details_holder .rightside div.contacts b {
+  display: block;
+  width: 100%;
+  float: left;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+/*------- EVENT THREAD ------*/
+#holder_events_container {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+
+#main .events div.thread {
+  display: none;
+  width: 100%;
+  float: left;
+  padding: 0;
+  height: calc(100vh - 111px);
+  position: relative;
+  top: -8px;
+}
+#main .events div.thread .heading {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  font-size: 0;
+  background-color: #05386B;
+  color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  left: 1px;
+}
+#main .events div.thread .heading img {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+  float: left;
+  object-fit: cover;
+  object-position: center;
+}
+#main .events div.thread .heading span {
+  display: inline-block;
+  width: calc(100% - 130px);
+  height: auto;
+  float: left;
+  font-size: 16px;
+  padding: 20px 0 15px 15px;
+  font-family: 'roboto_light';
+}
+#main .events div.thread .heading span.name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#main .events div.thread .heading span.icon {
+  width: 30px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+#main .events div.thread .heading span.back {
+   margin-right: 10px;
+   padding: 8px 0 8px 0;
+ }
+#main .events div.thread .heading span.icon:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+#main .events div.thread .heading span.back:hover i {
+  transform: rotate(720deg);
+}
+#main .events div.thread .options {
+  display: none;
+  width: 200px;
+  height: auto;
+  background-color: #FFFFFF;
+  color: #2D2D2D;
+  padding: 8px;
+  position: absolute;
+  right: 38px;
+  top: 27px;
+  border-radius: 5px;
+  border: 1px solid rgba(45,45,45,0.3);
+}
+#main .events div.thread .options span {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 8px 5px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  font-size: 15px;
+}
+#main .events div.thread .options span:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+#main .events div.thread .messages {
+  padding: 10px 5px;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  height: 280px;
+  overflow-y: auto;
+  float: left;
+}
+#main .events div.thread .messages .nomessage {
+  display: block;
+  float: left;
+  padding: 5px 12px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 170px;
+  left: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border: 1px solid rgba(45,45,45,0.2);
+  border-radius: 5px;
+  color: #2D2D2D;
+  text-align: center;
+  font-size: 14px;
+}
+#main .events div.thread .messages .others,
+#main .events div.thread .messages .mine {
+  display: block;
+  width: 90%;
+  float: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-bottom: 5px;
+}
+#main .events div.thread .messages .mine {
+  float: right;
+  background-color: rgba(92,219,149,0.3);
+}
+#main .events div.thread .messages .host {
+  background-color: rgba(248,234,59,0.5);
+}
+#main .events div.thread .messages .others .sender {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 2px 0;
+  padding-left: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(5,56,107,0.2);
+}
+#main .events div.thread .messages .others  div.sms,
+#main .events div.thread .messages .mine  div.sms {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 2px 10px;
+  text-align: justify;
+  font-family: 'roboto_light';
+}
+#main .events div.thread .messages .others span.dates,
+#main .events div.thread .messages .mine span.dates {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 2px 0;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 13px;
+  font-family: 'roboto_regular';
+}
+#main .events div.thread .messages div.othermates {
+  display: block;
+  position: relative;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  box-shadow: 0 3px 7px 0 rgba(0,0,0,0.2);
+}
+#main .events div.thread .messages div.othermates img {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border: 1px solid #2D2D2D;
+  border-radius: 50%;
+  float: left;
+  object-fit: cover;
+  object-position: center;
+}
+#main .events div.thread .messages div.othermates span {
+  display: inline-block;
+  float: left;
+  width: auto;
+  padding-left: 10px;
+  margin-top: 15px;
+  font-size: 15px;
+}
+#main .events div.thread .messages div.othermates button {
+  display: inline-block;
+  float: left;
+  width: auto;
+  padding: 8px;
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  background-color: tomato;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+#main .events div.thread .messages div.othermates button:hover {
+  background-color: #DA1A41
+}
+
+
+/* ----- NEW MESSAGE FORM ---*/
+#main .events div.thread form.newsms {
+  display: block;
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 5px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #DEF2F0;
+}
+#main .events div.thread form.newsms textarea {
+  display: inline-block;
+  width: 650px;
+  height: 120px;
+  float: left;
+  resize: none;
+  padding: 2px 4px;
+  font-family: 'roboto_regular';
+  color: #2D2D2D;
+  font-size: 15px;
+  border: 1px solid rgba(45,45,45,0.3);
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.4);
+}
+#main .events div.thread form.newsms textarea:focus {
+  outline: none;
+  border: 1px solid rgba(45,45,45,0.6);
+  box-shadow: 0 0 5px #2D2D2D;
+}
+#main .events div.thread form.newsms button {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  float: left;
+  padding: 5px;
+  font-size: 18px;
+  margin: 30px 0 0 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #05386B;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+#main .events div.thread form.newsms button:hover {
+  background-color: #268C87;
+}

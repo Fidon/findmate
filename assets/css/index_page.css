@@ -1,0 +1,177 @@
+#personal_account,
+#institutional_account {
+  display: none;
+  width: 100%;
+  height: auto;
+  float: left;
+  padding: 0;
+}
+
+/*--- forms header (login, register, reset password, welcome text, about text, help text)--*/
+#main div.forms {
+  display: block;
+  width: 100%;
+  height: auto;
+  float: left;
+  text-align: center;
+}
+
+/*----  welcome text, about text, help text ---*/
+#main div.forms div.welcome {
+  width: 1000px;
+  margin: 30px 0;
+  display: inline-block;
+  color: #05386B;
+  font-size: 25px;
+  font-weight: bold;
+}
+#main div.forms div.well {
+  margin-top: 150px;
+  font-weight: normal;
+}
+#main div.forms div.welcome img {
+  display: inline-block;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 4px #05386B);
+}
+#main div.forms div.welcome span {
+  font-family: "roboto_italic";
+  font-weight: lighter;
+}
+#main div.forms div.welcome button {
+  display: inline-block;
+  padding: 15px;
+  margin-top: 40px;
+  background-color: #05386B;
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#main div.forms div.welcome button i {
+  transition: all 0.6s ease;
+}
+#main div.forms div.welcome button:hover i {
+  transform: rotate(720deg);
+}
+
+/*----  Actual forms (login, register, reset password) ---*/
+#main div.forms form {
+  width: 450px;
+  height: auto;
+  padding: 0;
+  margin: 70px 0;
+  display: inline-block;
+  text-align: left;
+  font-family: "roboto_light";
+  font-size: 15px;
+}
+#main div.forms form span.form-header {
+  display: block;
+  width: 100%;
+  float: left;
+  background-color: #5CDB95;
+  padding: 12px 8px;
+  color: #05386B;
+  font-family: "roboto_bold";
+  margin-bottom: 10px;
+}
+#main div.forms form span.smsSuccess,
+#main div.forms form span.smsError,
+#main div.forms form div.input-wrapper span {
+  display: none;
+  width: 100%;
+  float: left;
+  padding: 1px 2px;
+  border-bottom: 1px solid red;
+  color: red;
+  font-size: 14px;
+  font-family: "roboto_regular";
+}
+#main div.forms form span.smsSuccess {
+  color: green;
+  border-bottom: 1px solid green;
+}
+#main div.forms form div.input-wrapper span {
+  border-bottom: none;
+  display: block;
+}
+#main div.forms form div.input-wrapper {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 2px 5px;
+  margin-bottom: 2px;
+  color: #2D2D2D;
+}
+#main div.forms form div.input-wrapper label,
+#main div.forms form div.input-wrapper input,
+#main div.forms form div.input-wrapper select,
+#main div.forms form div.input-wrapper textarea,
+#main div.forms form div.input-wrapper span {
+  display: block;
+  width: 100%;
+  float: left;
+}
+#main div.forms form div.input-wrapper input,
+#main div.forms form div.input-wrapper select,
+#main div.forms form div.input-wrapper textarea {
+  height: 40px;
+  padding-left: 5px;
+  border: 1px solid #2D2D2D;
+  border-radius: 4px;
+  color: #2D2D2D;
+  font-size: 15px;
+  border: 1px solid rgba(45,45,45,0.5);
+  font-family: "roboto_light";
+}
+#main div.forms form div.input-wrapper textarea {
+  height: 100px;
+  resize: none;
+}
+#main div.forms form div.input-wrapper input:focus,
+#main div.forms form div.input-wrapper select:focus,
+#main div.forms form div.input-wrapper textarea:focus {
+  outline: none;
+  border: 1px solid rgba(45,45,45,0.6);
+  box-shadow: 0 0 5px #2D2D2D;
+}
+#main div.forms form div.btn {
+  text-align: center;
+}
+#main div.forms form div.btn button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #5CDB95;
+  color: #05386B;
+  font-family: "roboto_bold";
+  font-size: 18px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+#main div.forms form div.input-wrapper button:hover {
+  background-color: #05386B;
+  color: #FFFFFF;
+}
+#main div.forms form div.btn button.loadBtn {
+  display: none;
+  cursor: not-allowed;
+}
+#main div.forms form div.input-wrapper a {
+  display: inline-block;
+  font-size: 15px;
+  color: #05386B;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#main div.forms form,
+#main div.forms div.welcome {
+  display: none;
+}
+#main div.forms div#welcomeId {
+  display: inline-block;
+}

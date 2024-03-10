@@ -1,0 +1,101 @@
+#main div.container_events {
+  display: block;
+  float: left;
+  width: 100%;
+  height: auto;
+  color: #2D2D2D;
+}
+#main div.events {
+  display: inline-block;
+  float: left;
+  width: 850px;
+  height: auto;
+  padding: 8px;
+  position: relative;
+}
+#main .events div.profile {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  position: relative;
+}
+#main .events div.profile .picture {
+  display: block;
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+#main .events div.profile .picture img {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-position: center;
+  object-fit: cover;
+}
+#main .events div.profile .picture span {
+  display: inline-block;
+  width: auto;
+  padding: 10px;
+  font-size: 20px;
+  position: relative;
+  top: -90px;
+  left: 20px;
+  color: #05386B;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+#main .events div.profile .fullname,
+#main .events div.profile .bio,
+#main .events div.profile .others {
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 0;
+  font-size: 17px;
+  padding: 15px 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+#main .events div.profile .bio,
+#main .events div.profile .others {
+  font-size: 15px;
+  text-align: justify;
+}
+#main .events div.profile .fullname div,
+#main .events div.profile .bio div,
+#main .events div.profile .others div {
+  display: block;
+  width: 100%;
+  float: left;
+  font-weight: normal;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+  margin-bottom: 5px;
+}
+#main .events div.profile .fullname div span,
+#main .events div.profile .bio div span,
+#main .events div.profile .others div span {
+  display: inline-block;
+  float: right;
+  width: auto;
+  margin-right: 20px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  color: #05386B;
+}
+#main .events div.profile .picture span:hover,
+#main .events div.profile .fullname div span:hover,
+#main .events div.profile .bio div span:hover,
+#main .events div.profile .others div span:hover {
+  background-color: rgba(0,0,0,0.2);
+}

@@ -1,0 +1,251 @@
+<!-- POP UP - NEW EVENT POST/REGISTRATION -->
+<div class="modal" id="modal_new_event">
+      <span class="close" onclick="closeForm('modal_new_event')">&times;</span>
+      <div class="modal-content">
+        <form class="formStyle" action="" method="post" enctype="multipart/form-data" id="newevent_form" autocomplete="off">
+          <div class="form-header">Post new event..</div>
+          <div class="success_sms" style="display:none"></div>
+          <div class="error_sms" style="display:none"></div>
+          <div class="input-wrapper">
+            <input type="text" name="ev_name" value="" placeholder="Event name/title" required>
+            <span class="ev_name"></span>
+          </div>
+          <div class="input-wrapper">
+            <select form="newevent_form" name="ev_category" required>
+              <option value="">Event category..</option>
+              <option value="Conference">Conference</option>
+              <option value="Seminar">Seminar</option>
+              <option value="Workshop/Class">Workshop/Class</option>
+              <option value="Exhibition">Exhibition</option>
+              <option value="Game or Competition">Game or Competition</option>
+              <option value="Festival or Party">Festival or Party</option>
+              <option value="Dinner or Lunch">Dinner or Lunch</option>
+              <option value="Leisure">Leisure</option>
+              <option value="Charity">Charity</option>
+            </select>
+            <span></span>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" name="ev_location" value="" id="ev_location" placeholder="Location and venue" required>
+            <span class="ev_location"></span>
+          </div>
+          <div class="input-wrapper">
+            <label>Enter event start date and time</label>
+            <input type="datetime-local" name="startDate" value="" placeholder="Event starting date" required>
+            <span class="startDate"></span>
+          </div>
+          <div class="input-wrapper">
+            <label>Enter event end date and time</label>
+            <input type="datetime-local" name="endDate" value="" placeholder="Event starting date" required>
+            <span class="endDate"></span>
+          </div>
+          <div class="input-wrapper">
+            <input type="number" name="miniFee" value="" placeholder="Event minimum entrance fee" required>
+            <span></span>
+          </div>
+          <div class="input-wrapper">
+            <input type="number" name="maxFee" value="" placeholder="Event maximum entrance fee" required>
+            <span class="maxFee"></span>
+          </div>
+          <div class="input-wrapper">
+            <label>Add event picture - jpg/png</label>
+            <input type="file" name="picture" accept="image/*" required>
+            <span class="picture"></span>
+          </div>
+          <div class="input-wrapper">
+            <textarea name="eventDetails" id="eventDetails" placeholder="Describe your event.." required></textarea>
+            <span class="eventDets"></span>
+          </div>
+          <div class="input-wrapper tags">
+            <label>Tag this event to some mates..</label>
+            <i class="fas fa-search"></i>
+            <input type="text" id="tag_input_search" placeholder="Search mates..">
+            <div class="searching" id="searchingTags"></div>
+            <div class="mentioned" id="mentionedTags"></div>
+          </div>
+          <div class="input-wrapper btn">
+            <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+            <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+            <button type="button" class="cancel" onclick="closeForm('modal_new_event')"><i class="fas fa-times-circle"></i> Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <!-- READ EVENT DETAILS - POP UP -->
+    <div class="modal" id="viewevent_details">
+      <span class="close" onclick="closeForm('viewevent_details')" style="display:none">&times;</span>
+      <div class="preload"><i class="fas fa-spinner fa-pulse"></i></div>
+      <div class="modal-content post_details" style="display:none">
+
+      </div>
+    </div>
+
+
+
+    <!-- POP UP - UPDATE PROFILE PICTURE -->
+    <div class="modal" id="update_profile_picture">
+          <span class="close" onclick="closeForm('update_profile_picture')">&times;</span>
+          <div class="modal-content">
+            <form class="formStyle" action="" method="post" enctype="multipart/form-data" id="newpicture_form" onsubmit="send_update('newpicture_form','update_profile_picture',event)">
+              <div class="form-header">Change profile picture..</div>
+              <div class="success_sms" style="display:none"></div>
+              <div class="error_sms" style="display:none"></div>
+              <div class="imageview">
+                <img src="" alt="">
+              </div>
+              <div class="input-wrapper">
+                <label>Select new picture - jpg/png</label>
+                <input type="file" name="picture" accept="image/*" required>
+                <span class="picture"></span>
+              </div>
+              <input type="hidden" name="profile_picture" value="1" required>
+              <div class="input-wrapper btn">
+                <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                <button type="button" class="cancel" onclick="closeForm('update_profile_picture')"><i class="fas fa-times-circle"></i> Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
+        <!-- POP UP - UPDATE USER NAMES -->
+        <div class="modal" id="update_names">
+              <span class="close" onclick="closeForm('update_names')">&times;</span>
+              <div class="modal-content">
+                <form class="formStyle" autocomplete="off" id="newnames_form" onsubmit="send_update('newnames_form','update_names',event)">
+                  <div class="form-header">Update profile name..</div>
+                  <div class="success_sms" style="display:none"></div>
+                  <div class="error_sms" style="display:none"></div>
+<?php if ($_SESSION['userType'] == 1) { ?>
+                  <div class="input-wrapper">
+                    <input type="text" name="firstN" placeholder="First name.." required>
+                    <span class="firstN"></span>
+                  </div>
+                  <div class="input-wrapper">
+                    <input type="text" name="lastN" placeholder="Last name.." required>
+                    <span class="lastN"></span>
+                  </div>
+<?php } else { ?>
+  <div class="input-wrapper">
+    <input type="text" name="firstN" placeholder="New name.." required>
+    <span class="firstN"></span>
+  </div>
+<?php } ?>
+                  <div class="input-wrapper btn">
+                    <input type="hidden" name="us_names" value="1" required>
+                    <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                    <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                    <button type="button" class="cancel" onclick="closeForm('update_names')"><i class="fas fa-times-circle"></i> Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+            <!-- POP UP - UPDATE BIO -->
+            <div class="modal" id="update_bio">
+                  <span class="close" onclick="closeForm('update_bio')">&times;</span>
+                  <div class="modal-content">
+                    <form class="formStyle" action="" method="post" id="newbio_form" onsubmit="send_update('newbio_form','update_bio',event)">
+                      <div class="form-header">Update bio..</div>
+                      <div class="success_sms" style="display:none"></div>
+                      <div class="error_sms" style="display:none"></div>
+                      <div class="input-wrapper">
+                        <textarea name="bio_new" class="bioNew" required></textarea>
+                        <span class="bio"></span>
+                      </div>
+                      <div class="input-wrapper btn">
+                        <input type="hidden" name="user_biography" value="1" required>
+                        <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                        <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                        <button type="button" class="cancel" onclick="closeForm('update_bio')"><i class="fas fa-times-circle"></i> Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+
+                <!-- POP UP - LOCATION ADDRESS -->
+                <div class="modal" id="update_address">
+                      <span class="close" onclick="closeForm('update_address')">&times;</span>
+                      <div class="modal-content">
+                        <form class="formStyle" autocomplete="off" id="newaddress_form" onsubmit="send_update('newaddress_form','update_address',event)">
+                          <div class="form-header">Update location address..</div>
+                          <div class="success_sms" style="display:none"></div>
+                          <div class="error_sms" style="display:none"></div>
+                          <div class="input-wrapper">
+                            <input type="text" name="location" value="" placeholder="Location address" required>
+                            <span class="location"></span>
+                          </div>
+                          <div class="input-wrapper btn">
+                            <input type="hidden" name="loc_address" value="1">
+                            <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                            <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                            <button type="button" class="cancel" onclick="closeForm('update_address')"><i class="fas fa-times-circle"></i> Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+
+
+
+                    <!-- POP UP - email address & mobile number -->
+                    <div class="modal" id="update_mail_mobile">
+                          <span class="close" onclick="closeForm('update_mail_mobile')">&times;</span>
+                          <div class="modal-content">
+                            <form class="formStyle" autocomplete="off" id="mailmob_form" onsubmit="send_update('mailmob_form','update_mail_mobile',event)">
+                              <div class="form-header">Update email & mobile..</div>
+                              <div class="success_sms" style="display:none"></div>
+                              <div class="error_sms" style="display:none"></div>
+                              <div class="input-wrapper">
+                                <input type="email" name="emailNew" value="" placeholder="Email address" required>
+                                <span class="email"></span>
+                              </div>
+                              <div class="input-wrapper">
+                                <input type="number" name="mobileNew" value="" placeholder="Mobile number" required>
+                                <span class="mobile"></span>
+                              </div>
+                              <div class="input-wrapper btn">
+                                <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                                <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                                <button type="button" class="cancel" onclick="closeForm('update_mail_mobile')"><i class="fas fa-times-circle"></i> Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+
+
+                    <!-- POP UP - PASSWORD -->
+                    <div class="modal" id="update_password">
+                          <span class="close" onclick="closeForm('update_password')">&times;</span>
+                          <div class="modal-content">
+                            <form class="formStyle" id="newpassword_form" onsubmit="send_update('newpassword_form','update_password',event)">
+                              <div class="form-header">Change password..</div>
+                              <div class="success_sms" style="display:none"></div>
+                              <div class="error_sms" style="display:none"></div>
+                              <div class="input-wrapper">
+                                <input type="password" name="passOld" value="" placeholder="Current password" required>
+                                <span class="passOld"></span>
+                              </div>
+                              <div class="input-wrapper">
+                                <input type="password" name="passNew" value="" placeholder="New password" required>
+                                <span></span>
+                              </div>
+                              <div class="input-wrapper">
+                                <input type="password" name="pass" value="" placeholder="Confirm password" required>
+                                <span class="passNew"></span>
+                              </div>
+                              <div class="input-wrapper btn">
+                                <button type="button" class="load"><i class="fas fa-spinner fa-pulse"></i> Please wait</button>
+                                <button type="submit" class="submit"><i class="fas fa-check-circle"></i> Submit</button>
+                                <button type="button" class="cancel" onclick="closeForm('update_password')"><i class="fas fa-times-circle"></i> Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
